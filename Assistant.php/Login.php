@@ -1,14 +1,16 @@
 <?php
-	
+     require_once "Assistant_db_config.php";
+     setcookie("test_cookie", "test", time() + 3600, '/');
+
 	$uname = "";
 	$err_uname="";
 	$pass="";
 	$err_pass="";
 	
-	$db_UserName = "maliha";
-	$db_Password = "password";
+	//$db_UserName = "Aysha_Maliha";
+	//$db_Password = "Blood#Rider40";
 	
-	$login_err="";
+	//$login_err="";
 	
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -48,13 +50,15 @@
 		echo "User Name: ". $_POST["uname"]."<br>";
 		echo "Password: ". $_POST["pass"]."<br>";
 		
-		if(empty($err_uname) && empty($err_pass)){
-			if($uname==$db_UserName && $pass==$db_Password){
-				header("location:Assistant_Home_Form.php");
-			}else{
-				$login_err="Incorrect login";
-			}
-		}
+		
+		  if($uname == $AUsername && $pass == $APassword && count($_COOKIE) > 0){
+		   $query ="select * from assistantinfo where AUsername='$uname' and APassword='$pass'";
+		   header("Location: Assistant_Home_Form.php");
+        } 
+		else {
+           echo "Cookies are disabled.";
+		  
+	   }
 		
 		
 		

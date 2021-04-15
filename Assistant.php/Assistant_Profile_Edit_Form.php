@@ -108,19 +108,6 @@
 			$birthday = $_POST['day']."/".$_POST['month']."/".$_POST['year'];
 		}
 		
-		
-		if(!empty($_FILES["profileImage"]["name"])){
-			//exit;
-			$target_dir = "Profile_images.php/";
-			$imageFileType = strtolower(pathinfo($_FILES["profileImage"]["name"],PATHINFO_EXTENSION));
-			$target_file = $target_dir . "profileImage.".$imageFileType;
-			if (move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) {
-				clearstatcache();
-				echo "The file ". htmlspecialchars( basename( $_FILES["profileImage"]["name"])). " has been uploaded.";
-			  } else {
-				echo "Sorry, there was an error uploading your image.";
-			  }	
-		}
 	
 		echo "Name: ". $_POST["name"]."<br>";
 		echo "User Name: ". $_POST["uname"]."<br>";
@@ -144,10 +131,10 @@
 	    <legend align="center"><center><h1>Profile</h1></center></legend>
 		<form action="" method="post" enctype="multipart/form-data">
 		
-		<img align="center" src="Profile_images.php/profileImage.jpg" alt="" height="300px" width="250px"><br>
+		<!--<img align="center" src="Profile_images.php/profileImage.jpg" alt="" height="300px" width="250px"><br>-->
 		<br>
 		
-		<input type="file" name="profileImage"><br>
+		<!--<input type="file" name="profileImage"><br>-->
 		<br>
 	
 			<table>
@@ -178,7 +165,7 @@
 				<tr>
 					<td><span><b>Birth Date</b>:<b>15/Jan(1)/1997</b></span></td>
                     <td>
-                        <select name="day">
+                        <select name="day" value="<?php echo $day;?>">
                             <option disabled selected>Day</option>
                             <?php 
 						
@@ -188,7 +175,7 @@
                                 }
                             ?>
                         </select>
-                        <select name="month">
+                        <select name="month" value="<?php echo $months;?>">
                             <option disabled selected>Month</option>
                             <?php 
                                 $months=array("Jan"=>"1", "Feb"=>"2", "Mar"=>"3", "Apr"=>"4", "May"=>"5", "June"=>"6","Jul"=>"7", "Aug"=>"8", "Sep"=>"9", "Oct"=>"10", "Nov"=>"11", "Dec"=>"12");
@@ -198,7 +185,7 @@
                                   }
                             ?>
                         </select>
-                        <select name="year">
+                        <select name="year" value="<?php echo $year;?>">
                         <option disabled selected>Year</option>
                         <?php 
                                 for($i=1985;$i<=2021;$i++)
@@ -207,7 +194,7 @@
                                 }
                             ?>
                         </select>
-                        <?php $err_birthday;?>
+                        <?php echo $err_birthday;?>
 				</tr>
 				<tr>
 					<td><span><b>Gender</b>:<b> Female</b></span></td>
