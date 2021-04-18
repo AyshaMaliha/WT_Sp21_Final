@@ -17,9 +17,20 @@ require_once "Assistant_db_config.php";
    $min="";
    $err_min="";
    $day="";
+   $err_day="";
+   
+      /* function insertInfo($AName,$AUsername,$APassword,$AEmail,$APhone,$ADocNname,$AHospitalName,$ABirthDate,$AGender)
+    {
+        $query = "insert into assistantinfo values(NULL,'$AName','$AUsername','$APassword','$AEmail',$APhone,'$ADocNname','$AHospitalName','$ABirthDate','$AGender')";
+		//echo $query;
+        $result = execute($query);
+		return $result;
+    }*/
    
    
-   if($_SERVER["REQUEST_METHOD"] == "POST")
+   //if($_SERVER["REQUEST_METHOD"] == "POST")
+    if(isset($_POST["confirm"]))
+
 	{
 		 
 		if(!isset($_POST['hr']) || !isset($_POST['min']) || !isset($_POST['zone'])){
@@ -56,21 +67,37 @@ require_once "Assistant_db_config.php";
 			$floor = $_POST['add'];
 		}
 		
+		if(!isset($_POST['day'])){
+			$err_day = "Day Required!";
+		}
+		else{
+			$day= $_POST['day'];
+		}
 		
-		$day = $_POST['day'];
 		
-		if(empty($err_time) && empty($err_room) && empty($err_floor) ){
-			$query = execute("INSERT INTO appointmentdetails VALUES(null, 1,1,1,'$day','$time','$number','$floor')");
+		//$day = $_POST['day'];
+		
+		if(empty($err_time) && empty($err_room) && empty($err_floor) && empty($err_day)){
+			$query = execute("INSERT INTO appointmentdetails VALUES(null, 1,1,1,'$day','$time','$number','$floor',2)");
 			if($query){
+				$_SESSION['message'] = "Successfully submited!";
 				echo "Successfully Submitted!";
 			}else{
+				$_SESSION['message'] = "Failed to Submit!";
 				echo "Database Error. Failed to submit!".mysqli_error($conn);
 			}
+			
+        }else{
+			$_SESSION['message'] = "There are one or many error!";
 		}
+		
+
 		
 		echo "Time: ". $time."<br>";
 		echo "Room No: ". $_POST["room"]."<br>";
 		echo "Floor: ". $floor."<br>";
+		echo "Day: ". $day."<br>";
+
 		
 		
 		
@@ -107,7 +134,7 @@ require_once "Assistant_db_config.php";
 							<option>Sat</option>
 							</select>
 
-                        <?php echo $err_floor; ?>
+                        <?php echo $err_day; ?>
 				</tr>
 				
 				<tr>
@@ -175,9 +202,10 @@ require_once "Assistant_db_config.php";
 				
 				
 				
+			<input type="submit" name="confirm" value="Confirm" style="height: 40px; width: 200px; float: center"><br> 
+
 			
-			
-			<a href="Assistant_Home_Form.php"><button align="center"  style="height: 60px; width: 250px";><b><h2>Confirm</h2></b></button></a>
+			<a href="Assistant_Home_Form.php"><!--<button align="center"  style="height: 60px; width: 250px";><b><h2>Confirm</h2></b></button>--></a>
 	
 		</form>
 		</fieldset>	

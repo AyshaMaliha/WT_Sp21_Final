@@ -93,36 +93,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
 		
 		echo "User Name: ". $_POST["uname"]."<br>";
 		echo "Password: ". $_POST["pass"]."<br>";
-        // $query = "select * from users where username='$uname'";
-        // $result = get($query);
-        // if(count($result) > 0)
-        // {
-        //     $user = $result[0];
-        //     if($user["password"] == $pass)
-        //     {
-        //         session_start();
-        //         $_SESSION["user"] = $user["username"];
-        //         $_SESSION["type"] = $user["type"];
-        //         if($_SESSION["type"] == "admin")
-        //         {
-        //             header("Location: dashboard.php");
-        //         }
-        //         else
-        //         {
-        //             header("Location: index.php");
-        //         }
-        //     }
-        //     else
-        //     {
-        //         $err_pass = "**password incorrect**";
-                
-        //     }
-        // }
-        // else
-        // {
-        //     $uname="";
-        //     $err_pass= "**username does not match!**";
-        // }
+        
     }
 	
 	

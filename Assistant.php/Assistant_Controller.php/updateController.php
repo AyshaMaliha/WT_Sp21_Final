@@ -1,9 +1,9 @@
 <?php
   session_start();
-  if(isset($_SESSION['updated']) && $_SESSION['updated']==true)
-	header("Location:Assistant_Profile_Edit_Form.php");
+  if(!isset($_SESSION['logged_in']) && $_SESSION['logged_in']!=true)
+	header("Location:Login.php");
 
-	require_once "Assistant_db_config.php";
+	require_once "Assistant_db_config.php"; 
     $name="";
 	$err_name="";
 	$uname = "";
@@ -12,19 +12,19 @@
 	$err_email="";
 	$number="";
 	$err_number="";
-	$id="";
+	$id=$_SESSION['id'];
 	$hasError = true;
 
 
 //Update User Function
     function updateUser($AID,$AName,$AUserName,$AEmail,$APhone)
     {
-        $query = "update assistantinfo set AName='$name', AUserName='$uname', AEmail='$email', APhone='$number' where AID=$id";
-        $result = execute($query);
+        $query = "update assistantinfo set AName='$AName', AUserName='$AUserName', AEmail='$AEmail', APhone='$APhone' where AID=$AID";
+		$result = execute($query);
 		return $result;
 	}
 		
-	if(isset($_POST["Register"]))
+	if(isset($_POST["updateDetails"]))
 	{
 	 if(empty($_POST["name"]))
      {
@@ -108,7 +108,7 @@
 				if($result){
 					$_SESSION['message'] = "Successfully Updated!";
 				}else{
-					$_SESSION['message'] = "Failed to Update!";
+					$_SESSION['message'] = "Failed to Update!".mysqli_error($conn);
 				}
                 //header("Location: Assistant_Sign_Up_Form.php");
             }

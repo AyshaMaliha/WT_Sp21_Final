@@ -1,8 +1,7 @@
 <?php
-
+	require_once "Assistant_db_config.php";
     require_once "Assistant_Controller.php/updateController.php";
 	
-	require_once "Assistant_db_config.php";
     $userID = $_SESSION['id'];
 	$sql1 = "SELECT * FROM assistantinfo WHERE AID='$userID'";
 	$userData = get($sql1);
