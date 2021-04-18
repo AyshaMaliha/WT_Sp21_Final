@@ -1,4 +1,13 @@
 <?php
+session_start();
+//if(!isset($_SESSION['updated']) && $_SESSION['updated']!=true)
+	//header("Location:Assistant_Account.php");
+
+	require_once "Assistant_db_config.php";
+	$userID = $_SESSION['id'];
+	$query = "SELECT * FROM assistantinfo WHERE AID='$userID'";
+	$userData = get($query);
+	$userData = $userData[0];
 
 ?>
 
@@ -11,14 +20,14 @@
 		
 			<center><h1>Account</h1></center>
 			
-			<img align="center" src="Profile_images.php/profileImage.jpg" alt="" height="300px" width="250px">
-			<h4 style="text-align:left;">Name: Noor A Aysha</h4>
-			<h4 style="text-align:left;">ID: 4202</h4>
-			<h4 style="text-align:left;">UserName: Aysha_Maliha</h4>
-			<h4 style="text-align:left;">Email: ayshamaliha15@gmail.com</h4>
-			<h4 style="text-align:left;">Phone: 01992012220</h4>
-			<h4 style="text-align:left;">Gender: Female</h4>
-			<h4 style="text-align:left;">Birth Date: 15 Jan, 1997</h4>
+			<img align="center" src="Profile_images.php/user.jpg" alt="" height="300px" width="250px">
+			<h4 style="text-align:left;">Name: <?=$userData['AName']?></h4>
+			<h4 style="text-align:left;">ID: <?=$userData['AID']?></h4>
+			<h4 style="text-align:left;">UserName: <?=$userData['AUserName']?></h4>
+			<h4 style="text-align:left;">Email: <?=$userData['AEmail']?></h4>
+			<h4 style="text-align:left;">Phone: <?=$userData['APhone']?></h4>
+			<h4 style="text-align:left;">Gender: <?=$userData['AGender']?></h4>
+			<h4 style="text-align:left;">Birth Date: <?=$userData['ABirthDate']?></h4>
 			
 				
 				

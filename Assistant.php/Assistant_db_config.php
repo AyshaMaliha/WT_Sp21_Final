@@ -3,10 +3,10 @@
 	$db_user="root";
 	$db_password="";
 	$db_name="assistant";
-	
+
 	function execute($query)
     {
-        global $db_server,$db_user,$db_password,$db_name;
+        global $db_server,$db_user,$db_password,$db_name, $conn;
         $conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
 		if(!$conn){
 			exit("Database connection failed!");
@@ -16,7 +16,7 @@
     }
     function get($query)
     {
-        global $db_server,$db_user,$db_password,$db_name;
+        global $db_server,$db_user,$db_password,$db_name, $conn;
         $conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
 		if(!$conn){
 			exit("Database connection failed!");

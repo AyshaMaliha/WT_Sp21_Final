@@ -1,6 +1,8 @@
 <?php
     session_start();
 	$_SESSION['message'] = "";
+	
+
 	require_once "Assistant_db_config.php";
 	$name="";
 	$err_name="";
@@ -34,6 +36,7 @@
 	$err_bio="";
 	$err_birthday="";
 	$birthday="";
+	$id="";
 	
 	$hasError = true;
 	
@@ -46,7 +49,13 @@
 		return $result;
     }
 	
-	
+	 //Update User Function
+    /*function updateUser($AID,$AName,$AUserName,$AEmail,$APhone)
+    {
+        $query = "update assistantinfo set AName='$name', AUserName='$uname', AEmail='$email', APhone='$number' where AID=$id";
+        execute($query);
+    }*/
+
 	
 	//if($_SERVER["REQUEST_METHOD"] == "POST")
 	if(isset($_POST["Register"]))
@@ -260,7 +269,6 @@
         }else{
 			$_SESSION['message'] = "There are one or many error!";
 		}
-		
 		
 		
 		

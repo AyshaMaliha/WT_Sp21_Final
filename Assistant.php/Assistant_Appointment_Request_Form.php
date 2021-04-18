@@ -1,5 +1,22 @@
 <?php
-
+session_start();
+require_once "Assistant_db_config.php";
+$userID = $_SESSION['id'];
+	$sql1 = "SELECT * FROM assistantinfo WHERE APID='$userID'";
+	$userData = get($sql1);
+	$userData = $userData[0];
+	
+	$sql2 = "SELECT PName FROM patient WHERE PID= (select PID from assistantinfo where APID= '$userID')";
+	$userData2 = get($sql2);
+	$userData2 = $userData2[0];
+	
+	$sql3 = "SELECT DName FROM doctors WHERE DID= (select DID from assistantinfo where APID= '$userID')";
+	$userData3 = get($sql3);
+	$userData3 = $userData3[0];
+	
+	$sql4 = "SELECT DName FROM doctors WHERE DID= (select DID from assistantinfo where APID= '$userID')";
+	$userData4 = get($sql4);
+	$userData4 = $userData4[0];
 ?>
 <html>
 	<head></head>
@@ -9,11 +26,11 @@
 		
 		
 			<center><h1>Apointment Request</h1></center>
-			<h3 style="text-align:left;">Patient Name: Fahim Mahtab Ifsan</h3>
-			<h3 style="text-align:left;">Patient ID: 3046</h3>
-			<h3 style="text-align:left;">Doctor's Name: Dr. Farzana Sohael</h3>
-			<h3 style="text-align:left;">Department: Gynocology</h3>
-			<h3 style="text-align:left;">Day: Sunday</h3>
+			<h3 style="text-align:left;">Patient Name: <?=$userData2['PID']?></h3>
+			<h3 style="text-align:left;">Patient ID: <?=$userData['PID']?></h3>
+			<h3 style="text-align:left;">Doctor's Name: <?=$userData3['DID']?></h3>
+			<h3 style="text-align:left;">Department: <?=$userData4['DID']?></h3>
+			<h3 style="text-align:left;">Day: <?=$userData['APDay']?></h3>
 			<br>
 				
 				

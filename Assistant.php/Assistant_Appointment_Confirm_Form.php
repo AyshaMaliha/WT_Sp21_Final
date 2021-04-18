@@ -1,4 +1,5 @@
 <?php
+require_once "Assistant_db_config.php";
    $time="";
    $err_time="";
    $zone="";
@@ -15,6 +16,7 @@
    $err_hr="";
    $min="";
    $err_min="";
+   $day="";
    
    
    if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -55,6 +57,17 @@
 		}
 		
 		
+		$day = $_POST['day'];
+		
+		if(empty($err_time) && empty($err_room) && empty($err_floor) ){
+			$query = execute("INSERT INTO appointmentdetails VALUES(null, 1,1,1,'$day','$time','$number','$floor')");
+			if($query){
+				echo "Successfully Submitted!";
+			}else{
+				echo "Database Error. Failed to submit!".mysqli_error($conn);
+			}
+		}
+		
 		echo "Time: ". $time."<br>";
 		echo "Room No: ". $_POST["room"]."<br>";
 		echo "Floor: ". $floor."<br>";
@@ -79,7 +92,23 @@
 			<h4 style="text-align:left;">Department: Gynocology</h4>
 			<h4 style="text-align:left;">Day: Sunday</h4>
 			<table>
-				
+				<tr>
+					<td><span><b>Day</b>:</span></td>
+                    <td>
+                        <select name="day">
+                            <option disabled selected>Day</option>
+                            
+							<option>Sun</option>
+							<option>Mon</option>
+							<option>Tue</option>
+							<option>Wed</option>
+							<option>Thu</option>
+							<option>Fri</option>
+							<option>Sat</option>
+							</select>
+
+                        <?php echo $err_floor; ?>
+				</tr>
 				
 				<tr>
 					<td><span><b>Time</b>:</span></td>

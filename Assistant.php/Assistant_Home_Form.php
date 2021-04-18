@@ -1,4 +1,14 @@
 <?php
+session_start();
+if(!isset($_SESSION['logged_in']) && $_SESSION['logged_in']!=true)
+	header("Location:Login.php");
+
+	require_once "Assistant_db_config.php";
+	$userID = $_SESSION['id'];
+	$sql1 = "SELECT * FROM assistantinfo WHERE AID='$userID'";
+	$userData = get($sql1);
+	$userData = $userData[0];
+	
 
 ?>
 <html>
@@ -7,11 +17,11 @@
 	    <fieldset style="width:1000px" align="center">
 	    <legend align="center"><center><h1>Hospital Hub</h1></center></legend>
 		
-		<img align="left" src="image1.jpg" alt="" height="300px" width="250px">
-			<center><h1>Noor A Aysha</h1></center>
-			<center> <h2>ID:4202</h2>
-			<center> <h2>Assistant of Dr. Farzana Sohael</h2>
-			<center> <h2>Popular Diagnostic Centre,Dhaka</h2><br>
+		<img align="left" src="user.jpg" alt="" height="300px" width="250px">
+			<center><h1><?=$userData['AName']?></h1></center>
+			<center> <h2>ID: <?=$userData['AID']?></h2>
+			<center> <h2>Assistant of <?=$userData['ADocName']?></h2>
+			<center> <h2><?=$userData['AHospitalName']?></h2><br>
 			<br>
 			<br><br><br>
 			
@@ -38,9 +48,19 @@
 				<table border="1" cellpadding="5">
 				<tr>
 				<td>
-				<?php 
-				if($_GET['day']=="sun"){
-					echo "Sun";
+				<?php
+$day = $_GET['day'];
+$resultSun = get("SELECT * FROM appointmentdetails WHERE APDay='$day'");
+					//$resultSun = $resultSun[]
+					$i=0;
+					foreach($resultSun as $key=>$value){
+						echo ++$i." ";
+						print_r($value);
+						echo "<br>";
+					}		
+					
+			/*	if($_GET['day']=="sun"){
+					
 				}
 				if($_GET['day']=="mon"){
 					echo "Mon";
@@ -60,6 +80,7 @@
 				if($_GET['day']=="sat"){
 					echo "Sat";
 				}
+				*/
 				?>
 				</td>
 				</tr>
@@ -68,7 +89,7 @@
 			
 			<a href="Assistant_Appointment_Request_List_Form.php" target="_blank"><button align="left" style="height: 100px; width: 250px";><b><h2>Appointment Request</h2></b></button></a>
 			
-			<button align="right" onclick="document.location='Login.php'" style="height: 100px; width: 250px";><b><h2>Log Out</h2></b></button>
+			<button align="right" onclick="document.location='logout.php'" style="height: 100px; width: 250px";><b><h2>Log Out</h2></b></button>
 	
 		
 		</fieldset>	
