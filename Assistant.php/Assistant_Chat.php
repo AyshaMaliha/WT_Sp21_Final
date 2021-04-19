@@ -11,6 +11,7 @@
 			<center><h1>Chat</h1></center>
 			<a href="Assistant_Home_Form.php"><h3 style="text-align:left;">Md. Muntanuz Zaman Jurat</h3></a>
 			<br>
+			<a href="Assistant_Home_Form.php">Back</a>
 				
 				
 			

@@ -1,5 +1,9 @@
 <?php
 session_start();
+	$_SESSION['message'] = "";
+
+
+	require_once "Assistant_db_config.php";
 
 	
 	$time="";

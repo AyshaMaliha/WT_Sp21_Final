@@ -46,6 +46,9 @@ $resultApp = get("SELECT * FROM appointmentdetails WHERE AID=$id");
                         
 				</tr>
 				</table>
+				
+				<a href="Assistant_Home_Form.php">Back</a>
+
 			
 			
 			

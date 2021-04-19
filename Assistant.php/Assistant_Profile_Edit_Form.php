@@ -38,7 +38,7 @@
 			<table>
 			    <tr>
 					<td><span><b>Name</b>:<b><?=$userData['AName']?></b></span></td>
-					<td><input type="text" name="name" value = "<?php echo $name;?>"><br>
+					<td><input id="click" type="text" onclick="keyClick()" name="name" value = "<?php echo $name;?>"><br>
 					<td><span><?php echo $err_name;?></span></td>
 				</tr>
 				<tr>
@@ -63,8 +63,24 @@
 			<br>
 <!--<button align="center" onclick="document.location='Assistant_Account.php'" style="height: 60px; width: 250px";><b><h2>Update</h2></b></button>-->
 		<input type="submit" name="updateDetails" value="Update" style="height: 40px; width: 200px; float: center"><br> 
+					<a href="Assistant_Account.php">Back</a>
+
 			
 		</form>
 		</fieldset>
 	</body>
+	<script>
+	
+    function get(id){
+		return document.getElement(id);
+	}
+	
+	var i=0;
+	var click = get("click");
+	function keyClick(){
+		click.onclick = "clicked";
+	}
+	
+	
+	</script>
 </html>

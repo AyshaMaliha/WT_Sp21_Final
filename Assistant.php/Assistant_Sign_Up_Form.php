@@ -106,7 +106,7 @@ require_once "Assistant_Controller.php/registrationController.php";
 			<input type="submit" name="Register">
 			<br>
 			<h5 style="text-align:left;">Already have an account? <a href="Login.php">Log-In</a></h5>
-			<a href="index.php">Go To HOME</a>
+			<a href="HOME.php">Go To HOME</a>
 			
 		</form>
 		</fieldset>

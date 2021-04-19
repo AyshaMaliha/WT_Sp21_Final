@@ -36,7 +36,9 @@ session_start();
 			
 			
 			<button align="left" onclick="window.location.href='Assistant_Profile_Edit_Form.php'" style="height: 100px; width: 250px";><b><h2>Edit</h2></b></button>
-	
+			<br>
+			<a href="Assistant_Home_Form.php">Back</a>
+
 		
 		</fieldset>	
 		</body>

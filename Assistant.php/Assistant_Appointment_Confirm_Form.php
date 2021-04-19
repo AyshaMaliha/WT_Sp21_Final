@@ -204,8 +204,9 @@ require_once "Assistant_db_config.php";
 				
 			<input type="submit" name="confirm" value="Confirm" style="height: 40px; width: 200px; float: center"><br> 
 
-			
-			<a href="Assistant_Home_Form.php"><!--<button align="center"  style="height: 60px; width: 250px";><b><h2>Confirm</h2></b></button>--></a>
+				
+
+			<a href="Assistant_Home_Form.php">Back</a>
 	
 		</form>
 		</fieldset>	

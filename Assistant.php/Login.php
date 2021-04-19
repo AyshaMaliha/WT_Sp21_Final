@@ -39,4 +39,10 @@
 		
 		
 	</body>
+	<script>
+	
+	function keyClick(){
+		click.onclick = "clicked";
+	}
+	</script>
 </html>

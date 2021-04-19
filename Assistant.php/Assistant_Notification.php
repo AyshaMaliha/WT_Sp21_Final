@@ -12,6 +12,8 @@
 			<a href="Assistant_Appointment_Request_Form.php"><h3 style="text-align:left;">New Appointment: Fahim Mahtab Ifsan</h3></a>
 			<h3 style="text-align:left;">New Notice: Server will go through maintainance..</h3>
 			<br>
+			<a href="Assistant_Home_Form.php">Back</a>
+
 				
 				
 			
