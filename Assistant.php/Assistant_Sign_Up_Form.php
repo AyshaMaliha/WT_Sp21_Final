@@ -18,47 +18,47 @@ require_once "Assistant_Controller.php/registrationController.php";
 				
 			?>
 		<br>
-		<form action="" method="post">
+		<form action="" onsubmit="return validate()" method="post">
 			<table>
 			     <tr>
 					<td><span><b>Name</b>:</span></td>
-					<td><input type="text" name="name" value = "<?php echo $name;?>"><br>
-					<td><span><font color="red"> <?php echo $err_name;?> </font></span></td>
+					<td><input type="text" name="name" id="name" value = "<?php echo $name;?>"><br>
+					<td><span id="err_name"><font color="red"> <?php echo $err_name;?> </font></span></td>
 				</tr>
 				<tr>
 					<td><span><b>Username</b>:</span></td>
-					<td><input type="text" name="uname" value = "<?php echo $uname;?>"><br>
-					<td><span><?php echo $err_uname;?></span></td>
+					<td><input type="text" name="uname" id="uname" value = "<?php echo $uname;?>"><br>
+					<td><span id="err_uname"><?php echo $err_uname;?></span></td>
 				</tr>
 				<tr>
 					<td><span><b>Password</b>:</span></td>
-					<td><input type="password" name="pass" value = "<?php echo $pass;?>"><br>
-					<td><span><?php echo $err_pass;?></span></td>
+					<td><input type="password" name="pass" id="pass" value = "<?php echo $pass;?>"><br>
+					<td><span id="err_pass"><?php echo $err_pass;?></span></td>
 				</tr>
 				<tr>
 					<td><span><b>Confirm Password</b>:</span></td>
-					<td><input type="password" name="conpass" value = "<?php echo $conpass;?>"><br>
-					<td><span><?php echo $err_conpass;?></span></td>
+					<td><input type="password" name="conpass" id="conpass" value = "<?php echo $conpass;?>"><br>
+					<td><span id="err_conpass"><?php echo $err_conpass;?></span></td>
 				</tr>
 				<tr>
 					<td><span><b>Email</b>:</span></td>
-					<td><input type="text" name="email" value = "<?php echo $email;?>"><br>
-					<td><span><?php echo $err_email;?></span></td>
+					<td><input type="text" name="email" id="email" value = "<?php echo $email;?>"><br>
+					<td><span id="err_email"><?php echo $err_email;?></span></td>
 				</tr>
 				<tr>
 				    <td><span><b>Phone</b>:</span></td>
-					<td><input type="text" name="number" size="9"  value="<?php echo $number;?>"><br>
-					<td><span><?php echo $err_number;?></span></td>
+					<td><input type="text" name="number" id="number" size="9"  value="<?php echo $number;?>"><br>
+					<td><span id="err_number"><?php echo $err_number;?></span></td>
 				</tr>
 				<tr>
 					<td><span><b>Doctor's Name</b>:</span></td>
-					<td><input type="text" name="dname" value = "<?php echo $dname;?>"><br>
-					<td><span><?php echo $err_dname;?></span></td>
+					<td><input type="text" name="dname" id="dname" value = "<?php echo $dname;?>"><br>
+					<td><span id="err_dname"><?php echo $err_dname;?></span></td>
 				</tr>
 				<tr>
 					<td><span><b>Hospital Name</b>:</span></td>
-					<td><input type="text" name="hname" value = "<?php echo $hname;?>"><br>
-					<td><span><?php echo $err_hname;?></span></td>
+					<td><input type="text" name="hname" id="hname" value = "<?php echo $hname;?>"><br>
+					<td><span id="err_hname"><?php echo $err_hname;?></span></td>
 				</tr>
 					
 				<tr>
@@ -96,9 +96,9 @@ require_once "Assistant_Controller.php/registrationController.php";
 				</tr>
 				<tr>
 					<td><span><b>Gender</b>:</span></td>
-					<td><input type="radio" name="gender" value="Male"><span>Male</span>
-					    <input type="radio" name="gender" value="Female"><span>Female</span></td>
-					<td><span><?php echo $err_gender;?></span></td>
+					<td><input type="radio" name="gender" id="gender1" value="Male"><span>Male</span>
+					    <input type="radio" name="gender"  id="gender2" value="Female"><span>Female</span></td>
+					<td><span id="err_gender"><?php echo $err_gender;?></span></td>
 				</tr>
 				
 			</table>
@@ -110,5 +110,7 @@ require_once "Assistant_Controller.php/registrationController.php";
 			
 		</form>
 		</fieldset>
-	</body>
+	</body> 
+	<script src="JS.php/Assistant_Validation.js"></script>
+
 </html>

@@ -76,7 +76,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
 		
 		if(empty($_POST["pass"]))
 		 {
-			 $err_pass="Password Required";
+			 $err_pass="Password Required!!";
 		 }
 		 else if(strlen($_POST["pass"])<8) {
 		 	$err_pass="Password must be 8 charachters long";

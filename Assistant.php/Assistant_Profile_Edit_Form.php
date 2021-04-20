@@ -27,7 +27,7 @@
 				
 			?>
 		<br>
-		<form action="" method="post" enctype="multipart/form-data">
+		<form action="" onsubmit="return validate()" method="post" enctype="multipart/form-data">
 		
 		<!--<img align="center" src="Profile_images.php/profileImage.jpg" alt="" height="300px" width="250px"><br>-->
 		<br>
@@ -38,24 +38,24 @@
 			<table>
 			    <tr>
 					<td><span><b>Name</b>:<b><?=$userData['AName']?></b></span></td>
-					<td><input id="click" type="text" onclick="keyClick()" name="name" value = "<?php echo $name;?>"><br>
-					<td><span><?php echo $err_name;?></span></td>
+					<td><input id="click" type="text" id="name" name="name" value = "<?php echo $name;?>"><br>
+					<td><span id="err_name"><?php echo $err_name;?></span></td>
 				</tr>
 				<tr>
 					<td><span><b>Username</b>:<b><?=$userData['AUserName']?></b></span></td>
-					<td><input type="text" name="uname" value = "<?php echo $uname;?>"><br>
-					<td><span><?php echo $err_uname;?></span></td>
+					<td><input type="text" id="uname" name="uname" value = "<?php echo $uname;?>"><br>
+					<td><span id="err_uname"><?php echo $err_uname;?></span></td>
 				</tr>
 				
 				<tr>
 					<td><span><b>Email</b>:<b><?=$userData['AEmail']?></b></span></td>
-					<td><input type="text" name="email" value = "<?php echo $email;?>"><br>
-					<td><span><?php echo $err_email;?></span></td>
+					<td><input type="text" id="email"  name="email" value = "<?php echo $email;?>"><br>
+					<td><span id="err_email"><?php echo $err_email;?></span></td>
 				</tr>
 				<tr>
 				    <td><span><b>Phone</b>:<b><?=$userData['APhone']?></b></span></td>
-					<td><input type="text" name="number" size="9"  value="<?php echo $number;?>"><br>
-					<td><span><?php echo $err_number;?></span></td>
+					<td><input type="text" id="number" name="number" size="9"  value="<?php echo $number;?>"><br>
+					<td><span id="err_number"><?php echo $err_number;?></span></td>
 				</tr>
 				
 				
@@ -69,18 +69,5 @@
 		</form>
 		</fieldset>
 	</body>
-	<script>
-	
-    function get(id){
-		return document.getElement(id);
-	}
-	
-	var i=0;
-	var click = get("click");
-	function keyClick(){
-		click.onclick = "clicked";
-	}
-	
-	
-	</script>
+	<script src="JS.php/Update_Validation"></script>
 </html>

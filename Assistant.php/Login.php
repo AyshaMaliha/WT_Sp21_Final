@@ -10,19 +10,19 @@
 	<fieldset>
 		<legend><h1><b>Log In</b></h1></legend>
 	
-	<form action="" method="post"> 
+	<form action="" onsubmit="return validate()" method="post"> 
 	<center table>
 	
 		<tr>
 					<td><span><b>Username</b>:</span></td>
-					<td>:<input type="text" name="uname" value = "<?php echo $uname;?>" ><br>
-					<td><span><?php echo $err_uname;?></span></td>
+					<td>:<input type="text" name="uname" id="uname" value = "<?php echo $uname;?>" ><br>
+					<td><span id="err_uname" ><?php echo $err_uname;?></span></td>
 		</tr>
 		<br>
 		<tr>
 					<td><span><b>Password</b>:</span></td>
-					<td>:<input type="password" name="pass" value = "<?php echo $pass;?>"><br>
-					<td><span><?php echo $err_pass;?></span></td>
+					<td>:<input type="password" name="pass" id="pass"  value = "<?php echo $pass;?>"><br>
+					<td><span  id="err_pass" ><?php echo $err_pass;?></span></td>
 		</tr>
 	
 	</table>
@@ -39,10 +39,5 @@
 		
 		
 	</body>
-	<script>
-	
-	function keyClick(){
-		click.onclick = "clicked";
-	}
-	</script>
+	<script src="JS.php/Login_Validation.js"></script>
 </html>
