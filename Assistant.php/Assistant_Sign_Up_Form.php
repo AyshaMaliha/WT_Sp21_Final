@@ -11,10 +11,11 @@ require_once "Assistant_Controller.php/registrationController.php";
 	    <legend align="center"><center><h1>Sign Up As Assistant</h1></center></legend>
 		<br>
 			<?php
-				if(!empty($_SESSION['message'])){
+				if(!empty($_SESSION['message']))
+				{
 					echo $_SESSION['message'];
-					//$_SESSION['message']=""
-				}
+					$_SESSION['message']="";
+                }
 				
 			?>
 		<br>
@@ -27,7 +28,7 @@ require_once "Assistant_Controller.php/registrationController.php";
 				</tr>
 				<tr>
 					<td><span><b>Username</b>:</span></td>
-					<td><input type="text" name="uname" id="uname" value = "<?php echo $uname;?>"><br>
+					<td><input type="text" name="uname" id="uname" onfocusout="checkUsername(this)" value = "<?php echo $uname;?>"><br>
 					<td><span id="err_uname"><?php echo $err_uname;?></span></td>
 				</tr>
 				<tr>
@@ -112,5 +113,7 @@ require_once "Assistant_Controller.php/registrationController.php";
 		</fieldset>
 	</body> 
 	<script src="JS.php/Assistant_Validation.js"></script>
+	<script src="JS.php/Username.js"></script>
+
 
 </html>

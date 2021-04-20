@@ -10,7 +10,7 @@ var contact=document.getElementById("number");
 
 
 
-function validate(){
+function validateType(){
     refresh();
     var hasError=false;
     

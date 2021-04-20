@@ -127,10 +127,10 @@ function validate(){
 			  document.getElementById("err_number").innerHTML = "Phone No. Required!";
 			  hasError = true;
 		  }
-		  else if (hasWhiteSpace(contact_number.value)) {
+		  else if (hasWhiteSpace(number.value)) {
 			document.getElementById("err_number").innerHTML = "*Contact number can not contain whitespace";
 			hasError = true;
-		  } else if (contact_number.value.length < 11) {
+		  } else if (number.value.length < 11) {
 			document.getElementById("err_number").innerHTML = "*Contact number must contain 11 digits";
 			hasError = true;
 		  }

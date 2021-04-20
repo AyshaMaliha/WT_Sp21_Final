@@ -27,7 +27,7 @@
 				
 			?>
 		<br>
-		<form action="" onsubmit="return validate()" method="post" enctype="multipart/form-data">
+		<form action="" onsubmit="return validateType()" method="post" >
 		
 		<!--<img align="center" src="Profile_images.php/profileImage.jpg" alt="" height="300px" width="250px"><br>-->
 		<br>
