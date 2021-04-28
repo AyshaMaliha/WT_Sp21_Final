@@ -36,7 +36,8 @@
 		<input type="submit" name="login" value="Log In" style="height: 40px; width: 200px; float: center"><br> 
 
 	
-	<a href="Home_From.php">Back</a>	<a href="Assistant_Sign_Up_From.php">Sign Up</a>
+	<a href="All_login.php">Back</a><br>
+	<a href="Assistant_Sign_Up_Form.php">Sign Up</a>
 
 	</form>
 	</fieldset>

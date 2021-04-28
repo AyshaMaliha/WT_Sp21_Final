@@ -133,7 +133,7 @@ $pId= $_GET['requests'];
 	<body>
 	    <fieldset style="width:1000px" align="center">
 	    <legend align="center"><center><h1>Hospital Hub</h1></center></legend>
-		<form action="" method="post">
+		<form action="" onsubmit="return validate()" method="post">
 		
 			<center><h1>Apointment Request</h1></center>
 	
@@ -141,13 +141,13 @@ $pId= $_GET['requests'];
 			<h4 style="text-align:left;">Patient Name: <?=$userData2['PName']?></h4>
 			<h4 style="text-align:left;">Patient ID: <?=$userData['PID']?></h4>
 			<h4 style="text-align:left;">Doctor's Name:  <?=$userData3['DName']?></h4>
-			<h4 style="text-align:left;">Department: Gynocology</h4>
-			<h4 style="text-align:left;">Day: Sunday</h4>
+			<h4 style="text-align:left;">Department: <?=$userData3['Department']?></h4>
+			<h4 style="text-align:left;">Day: <?=$userData['APDay']?></h4>
 			<table>
 				<tr>
 					<td><span><b>Day</b>:</span></td>
                     <td>
-                        <select name="day">
+                        <select name="day" id="day">
                             <option disabled selected>Day</option>
                             
 							<option>Sun</option>
@@ -159,13 +159,14 @@ $pId= $_GET['requests'];
 							<option>Sat</option>
 							</select>
 
-                        <?php echo $err_day; ?>
+                        <td><span id="err_day"><?php echo $err_day; ?></span></td>
+					</td>	
 				</tr>
 				
 				<tr>
 					<td><span><b>Time</b>:</span></td>
                     <td>
-                        <select name="hr">
+                        <select name="hr" id="hr">
                             <option disabled selected>Hour</option>
                             <?php 
                                 for($i=1;$i<=12;$i++)
@@ -174,7 +175,7 @@ $pId= $_GET['requests'];
                                 }
                             ?>
                         </select>
-                        <select name="min">
+                        <select name="min" id="min">
                             <option disabled selected>Minute</option>
                             <?php 
                                 for($i=01;$i<=60;$i++)
@@ -185,7 +186,7 @@ $pId= $_GET['requests'];
                                   
                             ?>
                         </select>
-                        <select name="zone">
+                        <select name="zone" id="zone">
                         <option disabled selected>Zone</option>
                         <?php 
                                 $zone=array("AM"=>".", "PM"=>".");
@@ -194,22 +195,23 @@ $pId= $_GET['requests'];
 								}
                             ?>
                         </select>
-                        <?php echo $err_time; ?>
+                        <td><span id="err_time"><?php echo $err_time; ?></span></td>
+					</td>	
 				</tr>
 				
 				
 				
 				<tr>
 				    <td><span><b>Room No</b>:</span></td>
-					<td><input type="text" name="room" value = "<?php echo $room;?>"><br>
-					<td><span><?php echo $err_room;?></span></td>
+					<td><input type="text" name="room" id="room" value = "<?php echo $room;?>"><br>
+					<td><span id="err_room"><?php echo $err_room;?></span></td>
 			    </tr>
 					
 					
 					<tr>
 					<td><span><b>Floor</b>:</span></td>
                     <td>
-                        <select name="add">
+                        <select name="add" id="floor">
                             <option disabled selected>Floor No</option>
                             <?php 
                                 $add=array("1st"=>"1", "2nd"=>"2", "3rd"=>"3", "4th"=>"4", "5th"=>"5", "6th"=>"6","7th"=>"7", "8th"=>"8", "9th"=>"9", "10th"=>"10", "11th"=>"11", "Dec12th"=>"12");
@@ -218,9 +220,10 @@ $pId= $_GET['requests'];
                                     
                                   }
                             ?>
-							</select>
+					   </select>
 
-                        <?php echo $err_floor; ?>
+                        <td><span id="err_floor"><?php echo $err_floor; ?></span></td>
+					</td>
 				</tr>
 			</table>
 				
@@ -236,4 +239,6 @@ $pId= $_GET['requests'];
 		</form>
 		</fieldset>	
 		</body>
+			<script src="JS.php/Confirm.js"></script>
+
 </html>

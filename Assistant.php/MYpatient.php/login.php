@@ -43,7 +43,9 @@
                   </table>
                   
                         </p>                   
-                	  <a href="Home.php">Home</a>
+                	  <a href="../Home_From.php">Home</a>
+					  <a href="../All_login.php">Back</a><br>
+
 					     </table>
 				
                         </p>

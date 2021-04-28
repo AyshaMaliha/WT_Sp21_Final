@@ -34,7 +34,7 @@
 
 	
 	<a href="ForgotPassword.php">Forgot Password?</a>
-	 <a href="Home.php">Back</a>
+	 <a href="../All_login.php">Back</a>
 	</form>
 	</fieldset>
 		

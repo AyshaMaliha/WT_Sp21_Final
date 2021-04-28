@@ -117,12 +117,12 @@
 				  </table>
 			  
 			             <tr>		
-						   <p class="message">Already registration? <a href="login.php">Signup</a>
+						   <p class="message">Already Registered? <a href="login.php">Login</a>
 						<tr>	
 
 			  
 			  
-			  <<a href="Assistant.php/signup.php">Back</a>
+			  <a href="../signup.php">Back</a>
 			  
 			  </form>
 			  </fieldset>

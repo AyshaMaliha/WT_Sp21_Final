@@ -69,5 +69,5 @@
 		</form>
 		</fieldset>
 	</body>
-	<script src="JS.php/Update_Validation"></script>
+	<script src="JS.php/Update_Validation.js"></script>
 </html>
