@@ -8,54 +8,11 @@ var dname = document.getElementById("dname");
 var hname = document.getElementById("hname");
 var gender1 = document.getElementById("gender1");
 var gender2 = document.getElementById("gender2");
+var day = document.getElementById("day");
+var month = document.getElementById("month");
+var year = document.getElementById("year");
 
-function hasWhiteSpace(s) {
-  return s.indexOf(" ") >= 0;
-}
-function hasAttherate(s) {
-  return s.indexOf("@") >= 0;
-}
 
-function hasSpecialChar(s) {
-  if (s.indexOf("#") >= 0 || s.indexOf("?") >= 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-//validate email check
-function validateEmail(email) {
-  var pos_at = email.indexOf("@");
-  var pos_dot = email.indexOf(".", pos_at + 1);
-  if (pos_at < pos_dot) {
-    return true;
-  }
-  return false;
-}
-
-// checking lower and upper characters
-function validatePass(s) {
-  hasUpper = false;
-  hasLower = false;
-  for (var i = 0; i < s.length; i++) {
-    if (s[i] == s[i].toUpperCase()) {
-      hasUpper = true;
-    } else {
-      hasUpper = hasUpper;
-    }
-    if (s[i] == s[i].toLowerCase()) {
-      hasLower = true;
-    } else {
-      hasLower = hasLower;
-    }
-  }
-  if (hasLower == false || hasUpper == false) {
-    return false;
-  } else {
-    return true;
-  }
-}
 
 
 function validate(){
@@ -68,6 +25,12 @@ function validate(){
 			  hasError = true;
 		  }
 		  
+		  if(day.value=="Day" || month.value=="Month" || year.value=="Year" || day.value.length<=0 || month.value.length<=0 || year.value.length<=0){
+			  document.getElementById("err_birthday").innerHTML = "Birthday Required!";
+			  //alert("bday err");
+			  hasError = true;
+		  }
+		  
 		  
 		  if(uname.value==""){
 			  document.getElementById("err_uname").innerHTML = "Username Required!";
@@ -77,13 +40,10 @@ function validate(){
               document.getElementById("err_uname").innerHTML = "Username must be at least 6 letters";
               hasError = true;
 		  } 
-		  else if (hasWhiteSpace(uame.value)) {
-			  document.getElementById("err_uname").innerHTML = "Username must not have whitespace";
-			  hasError = true;
-		  }
+		 
 		  
 
-		  if(get(pass.value ==""){
+		  if(pass.value ==""){
 			  document.getElementById("err_pass").innerHTML = "Password Required!";
 			  hasError = true;
 		  }
@@ -91,18 +51,7 @@ function validate(){
 			  document.getElementById("err_pass").innerHTML = "Password must be more than 8 characters";
 			  hasError = true;
 		  } 
-		  else if (hasWhiteSpace(pass.value)) {
-			 document.getElementById("err_pass").innerHTML = "Password cant contain whitespace";
-             hasError = true;
-		  } 
-		  else if (!hasSpecialChar(pass.value)) {
-			 document.getElementById("err_pass").innerHTML = "Password must contain ? or #";
-			 hasError = true;
-		  } 
-		  else if (!validatePass(pass.value)) {
-			 document.getElementById("err_pass").innerHTML = "Password must contain upper and lower characters";
-			 hasError = true;
-		  }
+		 
 		  
 		  
 		  if(conpass.value ==""){
@@ -115,25 +64,7 @@ function validate(){
 			  document.getElementById("err_email").innerHTML = "Email Required!";
 			  hasError = true;
 		  }
-		  else if (!hasAttherate(email.value)) {
-			document.getElementById("err_email").innerHTML = "*Email must contain @";
-			hasError = true;
-		  } else if (!validateEmail(email.value)) {
-			document.getElementById("err_email").innerHTML = "*Email is invalid";
-			hasError = true;
-		  }
-  
-		  if(number.value ==""){
-			  document.getElementById("err_number").innerHTML = "Phone No. Required!";
-			  hasError = true;
-		  }
-		  else if (hasWhiteSpace(number.value)) {
-			document.getElementById("err_number").innerHTML = "*Contact number can not contain whitespace";
-			hasError = true;
-		  } else if (number.value.length < 11) {
-			document.getElementById("err_number").innerHTML = "*Contact number must contain 11 digits";
-			hasError = true;
-		  }
+		 
 		  
 		  if(dname.value ==""){
 			  document.getElementById("err_dname").innerHTML = "Doctor's Name Required!";
@@ -160,7 +91,7 @@ function validate(){
 		  
 		  return !hasError;
 	  }
-}
+
 	  
 
 
@@ -176,5 +107,7 @@ function refresh()
 		  document.getElementById("err_dname").innerHTML = "";
 		  document.getElementById("err_hname").innerHTML = "";
 		  document.getElementById("err_gender").innerHTML = "";
+		  document.getElementById("err_birthday").innerHTML = "";
+
 
 }

@@ -41,7 +41,7 @@ $pId= $_GET['requests'];
 <!--<input type="submit" name="proceed" value="Proceed" style="height: 100px; width: 250px; float: center"><br> -->
 
 			
-			<button align="left" onclick="window.location.href='Assistant_Appointment_Confirm_Form.php'" style="height: 100px; width: 250px";><b><h2>Proceed</h2></b></button>
+			<button align="left" onclick="window.location.href='Assistant_Appointment_Confirm_Form.php?requests=<?=$pId?>'" style="height: 100px; width: 250px";><b><h2>Proceed</h2></b></button>
 			<button align="right" onclick="window.location.href='Assistant_Home_Form.php'" style="height: 100px; width: 250px";><b><h2>Reject</h2></b></button>
 
 		</fieldset>	

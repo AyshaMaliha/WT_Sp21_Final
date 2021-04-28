@@ -4,7 +4,10 @@
 ?>
 
 <html>
-	<head></head>
+
+	<head>
+	     
+	</head>
 	<body>
 	<center><h1><b>Welcome to Hospital Hub!</b></h1></center>
 	<fieldset>
@@ -33,7 +36,8 @@
 		<input type="submit" name="login" value="Log In" style="height: 40px; width: 200px; float: center"><br> 
 
 	
-	<a href="ForgotPassword.php">Forgot Password?</a>
+	<a href="Home_From.php">Back</a>	<a href="Assistant_Sign_Up_From.php">Sign Up</a>
+
 	</form>
 	</fieldset>
 		

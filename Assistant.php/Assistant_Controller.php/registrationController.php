@@ -48,7 +48,13 @@
         $result = execute($query);
 		return $result;
     }
-	
+	function checkUsername($uname)
+	{
+		$query = "select * from assistantinfo where AUserName='$uname'";
+		$rs = get($query);
+		if(count($rs)>0) return false;
+		return true;
+	}
 	 //Update User Function
     /*function updateUser($AID,$AName,$AUserName,$AEmail,$APhone)
     {
@@ -273,7 +279,7 @@
 		
 		
 		
-		echo "Name: ". $_POST["name"]."<br>";
+		/*echo "Name: ". $_POST["name"]."<br>";
 		echo "User Name: ". $_POST["uname"]."<br>";
 		echo "Password: ". $_POST["pass"]."<br>";
 		echo "Confirmed Password: ". $_POST["conpass"]."<br>";
@@ -282,7 +288,7 @@
 		echo "Doctor's Name: ". $_POST["dname"]."<br>";
 		echo "Hospital Name: ". $_POST["hname"]."<br>";
 		echo "Gender: ". $gender."<br>";
-		echo "Date of Birth: ". $birthday."<br>";
+		echo "Date of Birth: ". $birthday."<br>";*/
 		
 		
 	}

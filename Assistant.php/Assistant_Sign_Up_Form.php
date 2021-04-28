@@ -65,7 +65,7 @@ require_once "Assistant_Controller.php/registrationController.php";
 				<tr>
 					<td><span><b>Birth Date</b>:</span></td>
                     <td>
-                        <select name="day">
+                        <select name="day" id="day">
                             <option disabled selected>Day</option>
                             <?php 
                                 for($i=1;$i<=31;$i++)
@@ -74,7 +74,7 @@ require_once "Assistant_Controller.php/registrationController.php";
                                 }
                             ?>
                         </select>
-                        <select name="month">
+                        <select name="month" id="month">
                             <option disabled selected>Month</option>
                             <?php 
                                 $months=array("Jan"=>"1", "Feb"=>"2", "Mar"=>"3", "Apr"=>"4", "May"=>"5", "June"=>"6","Jul"=>"7", "Aug"=>"8", "Sep"=>"9", "Oct"=>"10", "Nov"=>"11", "Dec"=>"12");
@@ -84,7 +84,7 @@ require_once "Assistant_Controller.php/registrationController.php";
                                   }
                             ?>
                         </select>
-                        <select name="year">
+                        <select name="year" id="year">
                         <option disabled selected>Year</option>
                         <?php 
                                 for($i=1985;$i<=2021;$i++)
@@ -93,7 +93,10 @@ require_once "Assistant_Controller.php/registrationController.php";
                                 }
                             ?>
                         </select>
-                        <?php echo $err_birthday; ?>
+
+					</td>
+ 
+					<td><span id="err_birthday"><?php echo $err_birthday; ?></span></td>					
 				</tr>
 				<tr>
 					<td><span><b>Gender</b>:</span></td>
@@ -107,7 +110,7 @@ require_once "Assistant_Controller.php/registrationController.php";
 			<input type="submit" name="Register">
 			<br>
 			<h5 style="text-align:left;">Already have an account? <a href="Login.php">Log-In</a></h5>
-			<a href="HOME.php">Go To HOME</a>
+			<a href="Home_From.php">Go To HOME</a>
 			
 		</form>
 		</fieldset>

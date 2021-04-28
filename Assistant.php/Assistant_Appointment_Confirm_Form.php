@@ -1,5 +1,28 @@
 <?php
+session_start();
 require_once "Assistant_db_config.php";
+if(!isset($_GET['requests'])){
+	header("location:Assistant_Appointment_Request_List_Form.php");
+}
+$userID = $_SESSION['id'];
+$pId= $_GET['requests'];
+
+	$sql1 = "SELECT * FROM appointmentdetails WHERE PID='$pId'";
+	$userData = get($sql1);
+	$userData = $userData[0];
+	
+	$sql2 = "SELECT PName FROM patient WHERE PID= $pId";
+	$userData2 = get($sql2);
+	$userData2 = $userData2[0];
+	
+	$sql3 = "SELECT * FROM doctors WHERE DID=".$userData['DID'];
+	$userData3 = get($sql3);
+	$userData3 = $userData3[0];
+	
+	
+	
+	
+	
    $time="";
    $err_time="";
    $zone="";
@@ -113,9 +136,11 @@ require_once "Assistant_db_config.php";
 		<form action="" method="post">
 		
 			<center><h1>Apointment Request</h1></center>
-			<h4 style="text-align:left;">Patient Name: Fahim Mahtab Ifsan</h4>
-			<h4 style="text-align:left;">Patient ID: 3046</h4>
-			<h4 style="text-align:left;">Doctor's Name: Dr. Farzana Sohael</h4>
+	
+	
+			<h4 style="text-align:left;">Patient Name: <?=$userData2['PName']?></h4>
+			<h4 style="text-align:left;">Patient ID: <?=$userData['PID']?></h4>
+			<h4 style="text-align:left;">Doctor's Name:  <?=$userData3['DName']?></h4>
 			<h4 style="text-align:left;">Department: Gynocology</h4>
 			<h4 style="text-align:left;">Day: Sunday</h4>
 			<table>
